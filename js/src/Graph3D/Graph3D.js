@@ -56,17 +56,7 @@
         this.canRotate = false;
     }
 
-    mousemove(event) {
-        if (this.canRotate) {
-            const { movementX, movementY } = event;
-            this.figure.points.forEach(point => {
-                this.math3D.rotateOY(movementX / 180, point);
-                this.math3D.rotateOX(movementY / 180, point);
-            });
-            this.renderScene(this.figure);
-        }
-        console.log(this.figure, ' ---= До EventListener(mousemove)');
-    }
+
 
     renderScene(figure) {
         this.math3D.calcCenters(figure);
@@ -107,6 +97,17 @@
                 this.math3D.ys(point)
             );
         });
+    }
+    mousemove(event) {
+        if (this.canRotate) {
+            const { movementX, movementY } = event;
+            this.figure.points.forEach(point => {
+                this.math3D.rotateOY(movementX / 180, point);
+                this.math3D.rotateOX(movementY / 180, point);
+            });
+            this.renderScene(this.figure);
+        }
+        console.log(this.figure, ' ---= До EventListener(mousemove)');
     }
 
     addEventListeners() {
