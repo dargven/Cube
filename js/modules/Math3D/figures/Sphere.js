@@ -1,5 +1,6 @@
-class Sphere {
+class Sphere extends Figure {
     constructor() {
+        super();
 
         this.points = [
             new Point(10, 10, 10),

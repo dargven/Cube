@@ -29,7 +29,6 @@
         };
 
         this.figure = this.scene[document.getElementById('selectentities').value];
-        console.log(this.figure, ' ---= До EventListener');
         this.canRotate = false;
         this.renderScene(this.figure);
     }
@@ -90,7 +89,6 @@
                 this.math3D.ys(point2)
             );
         });
-        console.log(this.figure, ' ---= До EventListener(prosto)');
         this.figure.points.forEach(point => {
             this.graph.point(
                 this.math3D.xs(point),
@@ -114,10 +112,8 @@
         const selector = document.getElementById('selectentities');
         selector.addEventListener('change', () =>{
             this.figure = this.scene[document.getElementById('selectentities').value];
-            console.log(this.figure);
             this.renderScene(this.figure);
         })
-        console.log(this.figure, ' ---= ВО время EventListener');
     }
 
 
